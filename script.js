@@ -15,17 +15,25 @@ const stats = JSON.parse(localStorage.getItem("stats")) || {
 const MUNICIPIOS_URL =
   "https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json";
 
-fetch(MUNICIPIOS_URL)
-  .then(res => res.json())
-  .then(data => {
-    municipalities = data.map(m =>
-      m.nombre
-        .toUpperCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-    );
-    startGame();
-  });
+municipalities = [
+  "MADRID",
+  "BARCELONA",
+  "VALENCIA",
+  "SEVILLA",
+  "ZARAGOZA",
+  "MALAGA",
+  "MURCIA",
+  "PALMA",
+  "BILBAO",
+  "VALLADOLID",
+  "CORDOBA",
+  "GRANADA",
+  "ALMERIA",
+  "TOLEDO",
+  "SALAMANCA"
+];
+
+startGame();
 
 function startGame() {
   solution = getDailyWord();
